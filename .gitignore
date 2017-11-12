@@ -1,0 +1,6 @@
+.DS_Store
+.thumbs.db
+node_modules/
+npm-debug.log*
+cordova/platforms
+cordova/plugins
