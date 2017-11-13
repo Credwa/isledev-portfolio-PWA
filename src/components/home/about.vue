@@ -41,6 +41,7 @@ export default {
   justify-content center
   align-items center
   color white
+  width: 100vw
 
 .about-bitmoji
   background-image: url('~assets/aboutBitmoji.png');

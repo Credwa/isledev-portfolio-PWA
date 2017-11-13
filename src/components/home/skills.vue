@@ -149,12 +149,13 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100vw
 }
 
 .skills-list {
   background-color: #BDBDBD;
   opacity: 0.7;
-  width: 98vw;
+  width: 100vw;
   height: 40vh;
   display: flex;
   justify-content: space-evenly;

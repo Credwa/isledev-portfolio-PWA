@@ -51,6 +51,7 @@ export default {
   resize: both;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('~assets/beachImage.jpeg');
   height: 100vh;
+  width: 100vw
   justify-content: center;
   align-items: center;
   color: #EEEEEE;
