@@ -132,7 +132,6 @@ export default {
 
       // go to last list if loaded less than 0
       this.loaded = this.loaded <= -1 ? 2 : this.loaded;
-      console.log(this.loaded);
       return this.loaded;
     }
   }
