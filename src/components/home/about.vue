@@ -54,7 +54,7 @@ export default {
     animation: jiggle 2s ease-in infinite;
   &:active
     background-image: url('~assets/goodDayBM.png');
-    transition: background-image 0.4s ease-in;
+    transition: background-image 0.4s ease-in
 
 .about-info
   display flex

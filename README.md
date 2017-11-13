@@ -1,6 +1,6 @@
-# Quasar PWA App
+# PWA Portfolio Site
 
-> A Quasar PWA project
+> A Quasar PWA project for portfolio
 
 ## Build Setup
 
