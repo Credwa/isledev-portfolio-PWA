@@ -7,14 +7,33 @@
         <router-view></router-view>
       </transition>
     </main>
+    <q-btn
+    v-back-to-top.animate="{offset: 500, duration: 200}"
+    round
+    color="secondary"
+    class="fixed-bottom-right animate-pop"
+    style="margin: 0 15px 15px 0"
+  >
+  <q-tooltip anchor="top middle" self="bottom middle" :offset="[10, 10]">
+            <strong>Back To Top</strong>
+    </q-tooltip>
+  <q-icon name="keyboard_arrow_up" />
+</q-btn>
   </div>
 </template>
 
 <script>
 import Navbar from "./components/Navbar";
+import { QBtn, QIcon, BackToTop, QTooltip } from "quasar";
 export default {
   components: {
-    "nav-bar": Navbar
+    "nav-bar": Navbar,
+    QBtn,
+    QIcon,
+    QTooltip
+  },
+  directives: {
+    BackToTop
   }
 };
 </script>
@@ -24,6 +43,11 @@ export default {
 
 body {
   margin: 0;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+  font-family: palatino
 }
 
 main {
@@ -66,6 +90,24 @@ header {
 
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes jiggle {
+  48%, 62% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+
+  56% {
+    transform: scale(0.9, 1.1) translate(0, -5px);
+  }
+
+  59% {
+    transform: scale(1, 1) translate(0, -3px);
   }
 }
 </style>

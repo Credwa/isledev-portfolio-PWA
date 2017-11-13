@@ -5,21 +5,22 @@
       </div>
       <h3>Craig Edwards</h3>
       <h5>Software Engineer</h5>
-      <q-btn round class="downbtn" color="secondary">
-        <q-icon name="keyboard_arrow_down"/>
-      </q-btn>
+      <a class="downButton"><q-icon name="keyboard_arrow_down" /></a>
     </section>
     <about></about>
+    <skills></skills>
   </div>
 </template>
 
 <script>
-import About from "./home/about";
-import { QBtn, QIcon } from 'quasar';
+import about from "./home/about";
+import skills from "./home/skills";
+import { QBtn, QIcon } from "quasar";
 
 export default {
   components: {
-    about: About,
+    about,
+    skills,
     QBtn,
     QIcon
   },
@@ -32,24 +33,27 @@ export default {
 <style lang="stylus" scoped>
 @import '~variables';
 
-#home
-  display: flex
-  flex-direction column
-  justify-content center
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-.downbtn
-  margin-top 2em
+}
+
+.downbtn {
+  margin-top: 2em;
+}
 
 #intro {
   display: flex;
-  flex-direction column
+  flex-direction: column;
   background-size: 100% 100%;
   resize: both;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('~assets/beachImage.jpeg');
   height: 100vh;
   justify-content: center;
   align-items: center;
-  color: #EEEEEE
+  color: #EEEEEE;
 }
 
 .bitM {
@@ -60,33 +64,30 @@ export default {
   width: 30vh;
   border-radius: 100px;
   transition: background-image 0.2s ease-in;
-}
+  animation: jiggle 3s ease-in infinite;
 
-.bitM:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  animation: jiggle 1s ease-in infinite;
-}
-
-.bitM:active {
-  background-image: url('~assets/bitmoji-click.png');
-  transition: background-image 0.4s ease-in;
-}
-
-@keyframes jiggle {
-  48%, 62% {
-    transform: scale(1, 1);
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: jiggle 1s ease-in infinite;
   }
 
-  50% {
-    transform: scale(1.1, 0.9);
+  &:active {
+    background-image: url('~assets/bitmoji-click.png');
+    transition: background-image 0.4s ease-in;
   }
+}
 
-  56% {
-    transform: scale(0.9, 1.1) translate(0, -5px);
-  }
+.downButton {
+  font-size: 4rem;
+  color: $info;
+  border: none;
+  margin-bottom: 0px;
+  margin-top: 2rem;
 
-  59% {
-    transform: scale(1, 1) translate(0, -3px);
+  &:hover {
+    color: grey;
+    transform: scale(1.5)
+    transition: transform 0.2s ease-in, color 0.2s ease-in;
   }
 }
 </style>

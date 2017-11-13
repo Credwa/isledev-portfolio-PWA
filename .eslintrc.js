@@ -30,6 +30,7 @@ module.exports = {
     'quotes': 0,
     'semi': 0,
     'no-unused-vars': 1,
+    'inden': 0,
     'space-before-function-paren': 0,
     'import/first': 0,
     'import/named': 2,

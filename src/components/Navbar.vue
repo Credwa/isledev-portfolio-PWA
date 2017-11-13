@@ -2,25 +2,25 @@
 
 <div>
   <nav :class="{ 'shadow-3': scrolled, navscroll: scrolled}" class="gt-xs">
-    <router-link :to="{hash: 'intro'}" class="home-icon"><q-icon name="home" /></router-link>
-    <router-link :to="{hash: 'about'}">About</router-link>
-    <router-link :to="{hash: 'skills'}">Skills</router-link>
-    <router-link :to="{hash: 'projects'}">Projects</router-link>
-    <router-link :to="{hash: 'contact'}">Contact</router-link>
+    <router-link :to="{ path: '/', hash: 'intro'}" class="home-icon"><q-icon name="home" /></router-link>
+    <router-link :to="{ path: '/', hash: 'about'}">About</router-link>
+    <router-link :to="{ path: '/', hash: 'skills'}">Skills</router-link>
+    <router-link :to="{ path: '/', hash: 'projects'}">Projects</router-link>
+    <router-link :to="{ path: '/', hash: 'contact'}">Contact</router-link>
     <router-link to="/blog">Blog</router-link>
   </nav>
       <q-toolbar :class="{ 'shadow-3': scrolled, mininavscroll: scrolled}" class="lt-sm mininav">
         <q-toolbar-title>
-          <router-link :to="{hash: 'intro'}">Isledev</router-link>
+          <a @click="toggleMenu"><router-link :to="{hash: 'intro'}">Isledev</router-link></a>
         </q-toolbar-title>
         <q-btn flat><q-icon name="menu" style="font-size:1.5em" @click="toggleMenu"/></q-btn>
                 <q-slide-transition>
             <div v-show="menuOpen" class="mobileMenu lt-sm">
-            <router-link :to="{hash: 'about'}" @click="menuItemClicked">About</router-link>
-            <router-link :to="{hash: 'skills'}" @click="menuItemClicked">Skills</router-link>
-            <router-link :to="{hash: 'projects'}" @click="menuItemClicked">Projects</router-link>
-            <router-link :to="{hash: 'contact'}" @click="menuItemClicked">Contact</router-link>
-            <router-link to="/blog" @click="menuItemClicked">Blog</router-link>
+            <a @click="toggleMenu"><router-link :to="{hash: 'about'}" @click="toggleMenu">About</router-link></a>
+            <a @click="toggleMenu"><router-link :to="{hash: 'skills'}" >Skills</router-link></a>
+            <a @click="toggleMenu"><router-link :to="{hash: 'projects'}" @click="menuItemClicked">Projects</router-link></a>
+            <a @click="toggleMenu"><router-link :to="{hash: 'contact'}" @click="menuItemClicked">Contact</router-link></a>
+            <a @click="toggleMenu"><router-link to="/blog" @click="menuItemClicked">Blog</router-link></a>
         </div>
       </q-slide-transition>
       </q-toolbar>
@@ -54,7 +54,7 @@ export default {
       this.menuOpen = !this.menuOpen;
     },
     menuItemClicked() {
-      this.menuOpen = false;
+      this.menuOpen = !this.menuOpen
     }
   },
   created() {
@@ -66,7 +66,7 @@ export default {
 };
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 @import '~variables';
 
 nav {
@@ -78,9 +78,10 @@ nav {
   justify-content: center;
   align-items: center;
   justify-content: flex-end;
-  width: 100vw;
+  width: 99vw;
   height: $navheight;
   margin-bottom: $navheight;
+  font-size: 1.5em
   transition: height 0.4s ease-out, background-color 0.4s ease-out, font-size 0.4s ease-out;
 }
 
@@ -91,18 +92,19 @@ a {
   text-decoration: none;
   transition: color 0.5s ease-out;
   font-family: raleway;
+
 }
 
 a:hover {
   color: white;
-  font-size: 1.05em;
+  font-size: 1.25em;
   border-bottom-color: $info;
 }
 
 .navscroll {
   background-color: rgba(0, 0, 0, 0.7);
   height: $navheight - 1vh;
-  font-size: 0.8em;
+  font-size: 1.2em;
   transition: height 0.4s ease-in, background-color 0.4s ease-in, font-size 0.4s ease-in;
 }
 
