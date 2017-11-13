@@ -51,7 +51,7 @@ export default {
   background-size 100% 100%
   transition: background-image 0.2s ease-in;
   &:hover
-    animation: jiggle 2s ease-in infinite;
+    animation: jiggle 2s ease-in infinite
   &:active
     background-image: url('~assets/goodDayBM.png');
     transition: background-image 0.4s ease-in

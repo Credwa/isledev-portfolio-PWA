@@ -1,10 +1,8 @@
 const path = require('path');
-const http = require('http');
 const express = require('express');
 
 const port = process.env.PORT || 3000;
 let app = express();
-let server = http.createServer(app);
 
 app.use(express.static(__dirname + '/../dist/'));
 
@@ -14,6 +12,8 @@ app.get('/', function (req, res) {
 });
 
 // start server on specified port
-server.listen(port, () => {
+app.listen(port, () => {
     console.log(`Server is up on port ${port}`);
 });
+
+module.exports = { app };
