@@ -17,7 +17,7 @@ import VueScrollReveal from 'vue-scroll-reveal'
 import VueScrollTo from 'vue-scrollto'
 import Vuelidate from 'vuelidate'
 
-AddressbarColor.set('#0277BD')
+AddressbarColor.set('#31ccec')
 
 Vue.config.productionTip = false
 Vue.use(VueScrollTo)
