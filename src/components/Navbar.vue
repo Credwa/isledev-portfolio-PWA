@@ -2,21 +2,22 @@
 
 <div>
   <nav :class="{ 'shadow-3': scrolled, navscroll: scrolled}" class="gt-xs">
-    <router-link :to="{ path: '/', hash: 'intro'}" class="home-icon" v-scroll-to="'#intro'"><q-icon name="home" /></router-link>
-    <router-link :to="{ path: '/', hash: 'about'}" v-scroll-to="'#about'">About</router-link>
-    <router-link :to="{ path: '/', hash: 'skills'}" v-scroll-to="'#skills'">Skills</router-link>
-    <router-link :to="{ path: '/', hash: 'projects'}" v-scroll-to="'#projects'">Projects</router-link>
-    <router-link :to="{ path: '/', hash: 'contact'}" v-scroll-to="'#contact'">Contact</router-link>
+    <router-link :to="{ path: '/',}" class="home-icon" v-scroll-to="'#intro'"><q-icon name="home" /></router-link>
+    <router-link :to="{ path: '/',}" v-scroll-to="'#about'">About</router-link>
+    <router-link :to="{ path: '/',}" v-scroll-to="'#skills'">Skills</router-link>
+    <router-link :to="{ path: '/',}" v-scroll-to="'#projects'">Projects</router-link>
+    <router-link :to="{ path: '/',}" v-scroll-to="'#contact'">Contact</router-link>
     <router-link to="/blog">Blog</router-link>
   </nav>
-  <q-layout
+  <div v-if="windowWidth <= 576">
+    <q-layout
     ref="layout"
     :view="layoutStore.view"
     :right-breakpoint="layoutStore.rightBreakpoint"
     :reveal="layoutStore.reveal"
-    class="lt-sm"
+
   >
-    <q-toolbar slot="header" color="secondary" class="lt-sm">
+    <q-toolbar slot="header" color="secondary">
       <q-toolbar-title>
         Isledev
         <span slot="subtitle">Software Engineering</span>
@@ -29,17 +30,19 @@
     <q-scroll-area slot="right" style="width: 100%; height: 100%">
       <q-list-header>Slide to Close</q-list-header>
       <div v-if="layoutStore.rightScroll" style="padding: 25px 16px 16px;" class="mobLayout">
-        <router-link :to="{ path: '/', hash: 'intro'}"class="home-icon" v-scroll-to="'#intro'"><q-icon name="home" /></router-link>
-        <router-link :to="{ path: '/', hash: 'about'}" @click="layoutStore.rightScroll = !layoutStore.RightScroll" v-scroll-to="'#about'">About</router-link>
-        <router-link :to="{ path: '/', hash: 'skills'}" v-scroll-to="'#skills'">Skills</router-link>
-        <router-link :to="{ path: '/', hash: 'projects'}" v-scroll-to="'#projects'">Projects</router-link>
-        <router-link :to="{ path: '/', hash: 'contact'}"v-scroll-to="'#contact'">Contact</router-link>
+        <router-link :to="{ path: '/',}"class="home-icon" v-scroll-to="'#intro'"><q-icon name="home" /></router-link>
+        <router-link :to="{ path: '/',}" @click="layoutStore.rightScroll = !layoutStore.RightScroll" v-scroll-to="'#about'">About</router-link>
+        <router-link :to="{ path: '/',}" v-scroll-to="'#skills'">Skills</router-link>
+        <router-link :to="{ path: '/',}" v-scroll-to="'#projects'">Projects</router-link>
+        <router-link :to="{ path: '/',}"v-scroll-to="'#contact'">Contact</router-link>
         <router-link to="/blog">Blog</router-link>
       </div>
     </q-scroll-area>
 
   <router-view />
   </q-layout>
+  </div>
+
 
 </div>
 
@@ -47,7 +50,7 @@
 </template>
 
 <script>
-import layoutStore from './layout-store'
+import layoutStore from "./layout-store";
 import {
   QIcon,
   QToolbar,
@@ -85,7 +88,9 @@ export default {
     return {
       scrolled: false,
       menuOpen: false,
-      layoutStore
+      layoutStore,
+      windowWidth: 0,
+      windowHeight: 0
     };
   },
   methods: {
@@ -97,7 +102,17 @@ export default {
     },
     menuItemClicked() {
       this.menuOpen = !this.menuOpen;
+    },
+    getWindowWidth(event) {
+        this.windowWidth = document.documentElement.clientWidth;
     }
+  },
+  mounted() {
+    this.$nextTick(function() {
+      window.addEventListener("resize", this.getWindowWidth);
+
+      this.getWindowWidth();
+    });
   },
   created() {
     window.addEventListener("scroll", this.handleScroll);
@@ -156,7 +171,7 @@ a:hover {
 }
 
 .mobLayout {
-  display flex
-  flex-direction column
+  display: flex;
+  flex-direction: column;
 }
 </style>

@@ -31,10 +31,5 @@ export default new VueRouter({
   routes: [
     { path: '/', component: Home },
     { path: '/blog', component: Blog }
-  ],
-  scrollBehavior (to, from, savedPosition) {
-    if (to.hash) {
-      return { selector: to.hash }
-    }
-  }
+  ]
 })

@@ -35,10 +35,10 @@
   </q-modal-layout>
 </q-modal>
     <div id="socialMedia">
-        <a href="https://github.com/credwa"><i class="fa fa-github" aria-hidden="true" style="color: black"></i></a>
-        <a href="https://www.linkedin.com/in/craig-edwards-bba7b2bb/"><i class="fa fa-linkedin" aria-hidden="true" style="color: #006097"></i></a>
-        <a href="https://plus.google.com/104641623623891737074"><i class="fa fa-google-plus" aria-hidden="true" style="color:red"></i></a>
-        <a href="https://www.facebook.com/craig.edwards.9809"><i class="fa fa-facebook-official" aria-hidden="true" style="color: #4267b2"></i></a>
+        <a href="https://github.com/credwa"><i class="fa fa-github" aria-hidden="true" style="color: black" target="_blank"></i></a>
+        <a href="https://www.linkedin.com/in/craig-edwards-bba7b2bb/"><i class="fa fa-linkedin" aria-hidden="true" style="color: #006097" target="_blank"></i></a>
+        <a href="https://plus.google.com/104641623623891737074"><i class="fa fa-google-plus" aria-hidden="true" style="color:red" target="_blank"></i></a>
+        <a href="https://www.facebook.com/craig.edwards.9809"><i class="fa fa-facebook-official" aria-hidden="true" style="color: #4267b2" target="_blank"></i></a>
     </div>
     </div>
 </template>

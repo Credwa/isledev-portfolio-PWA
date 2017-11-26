@@ -2,7 +2,7 @@
     <div id="projects">
         <h1 v-scroll-reveal.reset>Projects</h1>
         <div >
-            <a v-for="project in projects" :key="project.title" :href="project.link" v-scroll-reveal.reset>
+            <a v-for="project in projects" :key="project.title" :href="project.link" target="_blank" v-scroll-reveal.reset >
                 <q-card inline class="project">
                 <q-card-title class="projectTitle">
                     {{project.title}}

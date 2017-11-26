@@ -6,7 +6,7 @@
       <div  v-scroll-reveal.reset>
       <h3>Craig Edwards</h3>
       <h5>Software Engineer</h5>
-      <a class="downButton"><q-icon name="keyboard_arrow_down" /></a>
+      <a class="downButton" v-scroll-to="'#about'"><q-icon name="keyboard_arrow_down" /></a>
       </div>
     </section>
     <about></about>
@@ -60,7 +60,7 @@ export default {
   flex-direction: column;
   background-size: 100% 100%;
   resize: both;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('~assets/beachImage.jpeg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('~assets/beachimage.jpg');
   height: 100vh;
   width: 100vw;
   justify-content: center;
