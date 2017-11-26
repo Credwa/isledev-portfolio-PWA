@@ -1,26 +1,37 @@
 <template>
   <div id="home">
     <section id="intro">
-      <div class="bitM">
+      <div class="bitM"  v-scroll-reveal.reset>
       </div>
+      <div  v-scroll-reveal.reset>
       <h3>Craig Edwards</h3>
       <h5>Software Engineer</h5>
       <a class="downButton"><q-icon name="keyboard_arrow_down" /></a>
+      </div>
     </section>
     <about></about>
     <skills></skills>
+    <projects></projects>
+    <contact></contact>
+    <footerr></footerr>
   </div>
 </template>
 
 <script>
 import about from "./home/about";
 import skills from "./home/skills";
+import projects from "./home/projects";
+import contact from "./home/contact";
+import footerr from "./footer";
 import { QBtn, QIcon } from "quasar";
 
 export default {
   components: {
     about,
     skills,
+    projects,
+    contact,
+    footerr,
     QBtn,
     QIcon
   },
@@ -37,7 +48,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  width: 100vw;
 }
 
 .downbtn {
@@ -51,7 +62,7 @@ export default {
   resize: both;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('~assets/beachImage.jpeg');
   height: 100vh;
-  width: 100vw
+  width: 100vw;
   justify-content: center;
   align-items: center;
   color: #EEEEEE;
@@ -63,7 +74,7 @@ export default {
   background-color: rgba(30, 30, 30, 0.7);
   height: 30vh;
   width: 30vh;
-  border-radius: 100px;
+  border-radius: 100vw;
   transition: background-image 0.2s ease-in;
   animation: jiggle 3s ease-in infinite;
 
@@ -87,7 +98,7 @@ export default {
 
   &:hover {
     color: grey;
-    transform: scale(1.5)
+    transform: scale(1.5);
     transition: transform 0.2s ease-in, color 0.2s ease-in;
   }
 }

@@ -1,9 +1,8 @@
 <template>
   <div id="skills">
-    <h1>Skills</h1><hr>
-    <div class="sneaky"></div>
-    <h4  class="gt-xs">{{skills[loadedComp].title}}</h4>
-    <div class="skills-list shadow-1" v-touch-swipe.horizontal="userHasSwiped">
+    <h1>Skills</h1>
+    <h4  class="gt-xs" v-scroll-reveal.reset>{{skills[loadedComp].title}}</h4>
+    <div class="skills-list shadow-1" v-touch-swipe.horizontal="userHasSwiped" v-scroll-reveal.reset>
       <a class="navArrow">
         <q-icon name="keyboard_arrow_left" @click="decrementList"/>
       </a>
@@ -143,7 +142,7 @@ export default {
 
 #skills {
   height: 100vh;
-  background: #ECEFF1;
+  background: white
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -152,7 +151,7 @@ export default {
 }
 
 .skills-list {
-  background-color: #BDBDBD;
+  background-color: #ECEFF1;;
   opacity: 0.7;
   width: 100vw;
   height: 40vh;
@@ -170,21 +169,6 @@ export default {
     color: $primary;
     transform: scale(1.2);
     transition color .3s ease-out, transform .3s ease-in
-  }
-}
-
-.sneaky {
-  height 10vh
-  width 10vh
-  opacity: .6
-  background $info
-  border-radius 100px
-  align-self flex-end
-  animation: jiggle 3s ease-in infinite;
-  &:hover {
-    background-image url('~assets/skillsBM.png');
-    opacity 1
-    transition background-image 1s ease-in, opacity 1s ease-in
   }
 }
 </style>

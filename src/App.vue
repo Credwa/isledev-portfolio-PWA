@@ -2,7 +2,7 @@
   <!-- Don't drop "q-app" class -->
   <div id="q-app">
     <header><nav-bar></nav-bar></header>
-    <main>
+    <main class="gt-xs">
       <transition name="slide" mode="out-in">
         <router-view></router-view>
       </transition>
@@ -44,6 +44,7 @@ export default {
 body {
   margin: 0;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  overflow-x: hidden;
 }
 
 h1,h2,h3,h4,h5,h6,h7 {

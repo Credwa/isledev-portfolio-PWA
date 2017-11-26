@@ -11,12 +11,18 @@ require(`quasar/dist/quasar.${__THEME}.css`)
 // require(`quasar/dist/quasar.ie.${__THEME}.css`)
 
 import Vue from 'vue'
-import Quasar, {AddressbarColor} from 'quasar'
+import Quasar, { AddressbarColor } from 'quasar'
 import router from './router'
+import VueScrollReveal from 'vue-scroll-reveal'
+import VueScrollTo from 'vue-scrollto'
+import Vuelidate from 'vuelidate'
 
 AddressbarColor.set('#a2e3fa')
 
 Vue.config.productionTip = false
+Vue.use(VueScrollTo)
+Vue.use(Vuelidate)
+Vue.use(VueScrollReveal)
 Vue.use(Quasar) // Install Quasar Framework
 
 if (__THEME === 'mat') {

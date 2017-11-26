@@ -1,12 +1,11 @@
 <template>
-  <div id='about'>
-
-    <div class="about-info">
-      <h3>Hi, I'm Craig</h3>
-      <h5>I'm a Full Stack Software Engineer based in NYC</h5>
-      <p class="about-text thin-paragraph">I build Web Applications, Progessive Web Applications, Mobile Applications (hybrid and native). I am currently {{ getAge() }} years old. <br><br>The work I provide is of highest quality, fully responsive, and tested in a wide range of devices. I take great care to ensure each project is well-documented and easily maintainable so you can enhance an application as it grows. </p>
+  <div id='about' >
+    <div class="about-info" v-scroll-reveal.reset>
+      <h3 style="font-family:Fjord" >DESIGN. INNOVATION. <br>CREATIVITY. TECHNOLOGY.</h3>
+      <h5>I build Web Applications, Progessive Web Applications, Mobile Applications (hybrid and native).</h5>
+      <p class="about-text thin-paragraph"><br>The work I provide is of highest quality, fully responsive, and tested in a wide range of devices. I take great care to ensure each project is well-documented and easily maintainable so you can enhance an application as it grows. </p>
     </div>
-    <div class="about-bitmoji"></div>
+    <div class="about-bitmoji"  v-scroll-reveal.reset></div>
   </div>
 </template>
 
@@ -16,17 +15,6 @@ export default {
     return {}
   },
   methods: {
-    getAge() {
-      let birthdate = new Date("09-19-1996"),
-        today = new Date(),
-        age = today.getFullYear() - birthdate.getFullYear(),
-        m = today.getMonth() - birthdate.getMonth();
-
-      if ((m < 0) || (m === 0 && today.getDate() < birthdate.getDate())) {
-        age--;
-      }
-      return age;
-    }
   }
 }
 </script>
@@ -34,13 +22,13 @@ export default {
 <style lang="stylus" scoped>
 @import '~variables'
 #about
-  height 100vh
-  background #424242
+  min-height 100vh
+  max-height 120vh
+  background #ECEFF1
   display flex
   flex-direction column
   justify-content center
   align-items center
-  color white
   width: 100vw
 
 .about-bitmoji
@@ -57,13 +45,18 @@ export default {
     background-image: url('~assets/goodDayBM.png');
     transition: background-image 0.4s ease-in
 
+h1,h2,h3,h4,h5
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+
 .about-info
   display flex
   flex-direction column
   margin-top 5vh
 
 .about-text
-  align-self flex-start
+  align-self center
   width 50vw
   margin-top 1.5rem
+  font-size 1.2em
+  font-family: Fjord
 </style>
