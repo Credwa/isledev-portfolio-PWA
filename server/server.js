@@ -30,15 +30,29 @@ app.post('/sendmail', (req, res) => {
         let transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-              user: process.env.EMAIL,
-              pass: process.env.PASSWORD
+              type: 'OAuth2',
+              clientId: process.env.CLIENT_ID,
+              clientSecred: process.env.CLIENT_SECRET
             }
+        });
+        transporter.on('token', token => {
+            console.log('A new access token was generated');
+            console.log('User: %s', token.user);
+            console.log('Access Token: %s', token.accessToken);
+            console.log('Expires: %s', new Date(token.expires));
         });
         let mailOptions = {
             from: process.env.EMAIL,
             to: process.env.EMAIL,
             subject: 'Isledev Email ' + req.body.subject,
-            text: 'My Name: ' + req.body.name + '\nMy Email: ' + req.body.email + '\n' + req.body.message
+            text: 'My Name: ' + req.body.name + '\nMy Email: ' + req.body.email + '\n' + req.body.message,
+            html: '<b>My Name: ' + req.body.name + '\nMy Email: ' + req.body.email + '\n' + req.body.message + '<b>',
+            auth: {
+                user: process.env.EMAIL,
+                refreshToken: process.env.REFRESH_TOKEN,
+                accessToken: process.env.ACCESS_TOKEN,
+                expires: 1494388182480
+            }
         };
         transporter.sendMail(mailOptions, function(error, info) {
             console.log(error);
