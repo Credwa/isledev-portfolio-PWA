@@ -27,27 +27,35 @@ app.get('/', function (req, res) {
 app.post('/sendmail', (req, res) => {
     console.log(req.body);
     if (validator.isEmail(req.body.email) && (req.body.name.length > 1) && (req.body.message.length >= 4)) {
-        let smtpTransport = nodemailer.createTransport("SMTP", {
+        let smtpTransport = nodemailer.createTransport({
             service: "Gmail",
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true,
             auth: {
-              XOAuth2: {
-                user: process.env.EMAIL,
-                clientId: process.env.CLIENT_ID,
-                clientSecret: process.env.CLIENT_SECRET,
-                refreshToken: process.env.REFRESH_TOKEN
-              }
+                type: 'OAuth2',
+                user: process.env.EMAIL || 'craigroe7@gmail.com',
+                clientId: process.env.CLIENT_ID || '198159652719-2c2h8rhjtqr3esv7jhk79kdg4nosg08u.apps.googleusercontent.com',
+                clientSecret: process.env.CLIENT_SECRET || 'qiz6-pUKhnhm2b1iWfHoK9w3',
+                refreshToken: process.env.REFRESH_TOKEN || '1/XGBGpazA9hDN7nOrwRw6L5451drC5V9TMYbAQ-CXPQ7nCkVO4s1gcl7tHiJZ0v88',
+                accessToken: process.env.accessToken || 'ya29.GlsRBSoeysKRI2ab4Ora_uUJxMEBjlQg7MFe-AxvmFLDlpKj4lpgqvC2Xp8e-qvivAkP8mPssSWEbfF-9rUNP812ECl8-egXTznGqXVJdg5ErIXdrXeeJ9WE28zE'
             }
         });
 
         let mailOptions = {
-            from: process.env.EMAIL,
-            to: process.env.EMAIL,
+            from: process.env.EMAIL || 'craigroe7@gmail.com',
+            to: process.env.EMAIL || 'craigroe7@gmail.com',
             subject: 'Isledev Email ' + req.body.subject,
             text: 'My Name: ' + req.body.name + '\nMy Email: ' + req.body.email + '\n' + req.body.message,
             generateTextFromHTML: true,
-            html: '<b>My Name: ' + req.body.name + '\nMy Email: ' + req.body.email + '\n' + req.body.message + '<b>'
+            html: '<b><h2>My Name: ' + req.body.name + '</h2><br>\n<h3>My Email: ' + req.body.email + '</h3><br>\n' + req.body.message + '</b>',
+            auth: {
+                user: process.env.EMAIL || 'craigroe7@gmail.com',
+                refreshToken: process.env.REFRESH_TOKEN || '1/XGBGpazA9hDN7nOrwRw6L5451drC5V9TMYbAQ-CXPQ7nCkVO4s1gcl7tHiJZ0v88'
+            }
         };
-        smtpTransport.sendMail(mailOptions, function(error, info) {
+
+        smtpTransport.sendMail(mailOptions, function (error, info) {
             console.log(error);
             console.log(info);
             if (error) {
