@@ -27,34 +27,27 @@ app.get('/', function (req, res) {
 app.post('/sendmail', (req, res) => {
     console.log(req.body);
     if (validator.isEmail(req.body.email) && (req.body.name.length > 1) && (req.body.message.length >= 4)) {
-        let transporter = nodemailer.createTransport({
-            service: 'gmail',
+        let smtpTransport = nodemailer.createTransport("SMTP", {
+            service: "Gmail",
             auth: {
-              type: 'OAuth2',
-              clientId: process.env.CLIENT_ID,
-              clientSecred: process.env.CLIENT_SECRET
+              XOAuth2: {
+                user: process.env.EMAIL,
+                clientId: process.env.CLIENT_ID,
+                clientSecret: process.env.CLIENT_SECRET,
+                refreshToken: process.env.REFRESH_TOKEN
+              }
             }
         });
-        transporter.on('token', token => {
-            console.log('A new access token was generated');
-            console.log('User: %s', token.user);
-            console.log('Access Tokens: %s', token.accessToken);
-            console.log('Expires: %s', new Date(token.expires));
-        });
+
         let mailOptions = {
             from: process.env.EMAIL,
             to: process.env.EMAIL,
             subject: 'Isledev Email ' + req.body.subject,
             text: 'My Name: ' + req.body.name + '\nMy Email: ' + req.body.email + '\n' + req.body.message,
-            html: '<b>My Name: ' + req.body.name + '\nMy Email: ' + req.body.email + '\n' + req.body.message + '<b>',
-            auth: {
-                user: process.env.EMAIL,
-                refreshToken: process.env.REFRESH_TOKEN,
-                accessToken: process.env.ACCESS_TOKEN,
-                expires: 1494388182480
-            }
+            generateTextFromHTML: true,
+            html: '<b>My Name: ' + req.body.name + '\nMy Email: ' + req.body.email + '\n' + req.body.message + '<b>'
         };
-        transporter.sendMail(mailOptions, function(error, info) {
+        smtpTransport.sendMail(mailOptions, function(error, info) {
             console.log(error);
             console.log(info);
             if (error) {
@@ -65,6 +58,7 @@ app.post('/sendmail', (req, res) => {
                 res.send(req.body);
                 res.status(200).send();
             }
+            smtpTransport.close();
         });
     } else {
         return res.status(400).send('Data Invalid');
