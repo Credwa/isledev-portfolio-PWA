@@ -36,7 +36,7 @@ app.post('/sendmail', (req, res) => {
         });
         let mailOptions = {
             from: process.env.EMAIL,
-            to: process.env.EMAIL,
+            to: process.env.EMAILgi,
             subject: req.body.subject,
             text: 'My Name: ' + req.body.name + '\nMy Email: ' + req.body.email + '\n' + req.body.message
         };
@@ -45,7 +45,7 @@ app.post('/sendmail', (req, res) => {
             console.log(info);
             if (error) {
                 console.log(error);
-                return res.status(400).send();
+                return res.status(400).send(error);
             } else {
                 console.log('Email sent: ' + info.response);
                 res.send(req.body);
@@ -53,7 +53,7 @@ app.post('/sendmail', (req, res) => {
             }
         });
     } else {
-        return res.status(400).send();
+        return res.status(400).send('Data Invalid');
     }
 })
 
