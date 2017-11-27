@@ -30,14 +30,14 @@ app.post('/sendmail', (req, res) => {
         let transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-              user: process.env.EMAIL,
-              pass: process.env.PASSWORD
+              user: process.env.EMAIL || 'craigroe7@gmail.com',
+              pass: process.env.PASSWORD || 'Pandora13'
             }
         });
         let mailOptions = {
-            from: process.env.EMAIL,
-            to: process.env.EMAIL,
-            subject: req.body.subject,
+            from: process.env.EMAIL || 'craigroe7@gmail.com',
+            to: process.env.EMAIL || 'craigroe7@gmail.com',
+            subject: 'Isledev Email ' + req.body.subject,
             text: 'My Name: ' + req.body.name + '\nMy Email: ' + req.body.email + '\n' + req.body.message
         };
         transporter.sendMail(mailOptions, function(error, info) {
