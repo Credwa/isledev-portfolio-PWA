@@ -36,7 +36,7 @@ app.post('/sendmail', (req, res) => {
         });
         let mailOptions = {
             from: process.env.EMAIL,
-            to: process.env.EMAILgi,
+            to: process.env.EMAIL,
             subject: req.body.subject,
             text: 'My Name: ' + req.body.name + '\nMy Email: ' + req.body.email + '\n' + req.body.message
         };
