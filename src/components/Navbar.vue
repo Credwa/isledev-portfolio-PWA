@@ -28,22 +28,19 @@
     </q-toolbar>
 
     <q-scroll-area slot="right" style="width: 100%; height: 100%">
-      <q-list-header>Slide to Close</q-list-header>
+      <q-list-header>Menu</q-list-header>
       <div v-if="layoutStore.rightScroll" style="padding: 25px 16px 16px;" class="mobLayout">
-        <router-link :to="{ path: '/',}"class="home-icon" v-scroll-to="'#intro'"><q-icon name="home" /></router-link>
-        <router-link :to="{ path: '/',}" @click="layoutStore.rightScroll = !layoutStore.RightScroll" v-scroll-to="'#about'">About</router-link>
-        <router-link :to="{ path: '/',}" v-scroll-to="'#skills'">Skills</router-link>
-        <router-link :to="{ path: '/',}" v-scroll-to="'#projects'">Projects</router-link>
-        <router-link :to="{ path: '/',}"v-scroll-to="'#contact'">Contact</router-link>
-        <router-link to="/blog">Blog</router-link>
+        <a class="home-icon" v-scroll-to="'#intro'"><q-icon name="home" @click="$refs.layout.toggleRight()"/></a>
+        <a v-scroll-to="'#about'" @click="$refs.layout.toggleRight()">About</a>
+        <a v-scroll-to="'#skills'" @click="$refs.layout.toggleRight()">Skills</a>
+        <a v-scroll-to="'#projects'" @click="$refs.layout.toggleRight()">Projects</a>
+        <a v-scroll-to="'#contact'" @click="$refs.layout.toggleRight()">Contact</a>
+        <router-link to="/blog" @click="console.log(1)" tag="a">Blog</router-link>
       </div>
     </q-scroll-area>
-
   <router-view />
   </q-layout>
   </div>
-
-
 </div>
 
 

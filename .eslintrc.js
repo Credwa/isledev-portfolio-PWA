@@ -40,6 +40,6 @@ module.exports = {
     'import/export': 2,
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
-    'brace-style': [2, 'stroustrup', { 'allowSingleLine': true }]
+    'brace-style': [1, 'stroustrup', { 'allowSingleLine': true }]
   }
 }

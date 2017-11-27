@@ -16,10 +16,12 @@ import router from './router'
 import VueScrollReveal from 'vue-scroll-reveal'
 import VueScrollTo from 'vue-scrollto'
 import Vuelidate from 'vuelidate'
+import VueResource from 'vue-resource'
 
-AddressbarColor.set('#26a69a')
+AddressbarColor.set('#06665d')
 
 Vue.config.productionTip = false
+Vue.use(VueResource);
 Vue.use(VueScrollTo)
 Vue.use(Vuelidate)
 Vue.use(VueScrollReveal)
