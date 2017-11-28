@@ -63,10 +63,6 @@ export default {
   width: 100vw;
 }
 
-.downbtn {
-  margin-top: 2em;
-}
-
 #intro {
   display: flex;
   flex-direction: column;
