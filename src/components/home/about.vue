@@ -136,7 +136,7 @@ export default {
 
 @media screen and (max-width: 920px) {
   .about-card {
-    min-width: 80vw;
+    min-width: 90vw;
     transition: background-color 0.4s ease-in, transform 0.4s ease-out;
 
     &:hover {
