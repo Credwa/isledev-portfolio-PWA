@@ -4,7 +4,7 @@
       <div class="bitM"  v-scroll-reveal.reset>
       </div>
       <div  v-scroll-reveal.reset>
-      <h1 style="color: white">Craig Edwards</h1>
+      <h2 style="color: white">Craig Edwards</h2>
       <h3 style="color: white" class="gt-xs">Full-Stack Software Engineer</h3>
       <h5 style="color: white" class="xs">Full-Stack Software Engineer</h5>
       <a class="downButton" v-scroll-to="'#about'"><q-icon name="keyboard_arrow_down" /></a>
