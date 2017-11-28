@@ -66,6 +66,7 @@ header {
   background-color: $secondary
   width 2vw
   height 100vh
+  z-index 1200
 }
 
 .leftStylePr {
@@ -75,6 +76,7 @@ header {
   background-color: $primary
   width 2vw
   height 100vh
+  z-index 1200
 }
 
 .leftStyleSk {
@@ -84,6 +86,7 @@ header {
   background-color: $secondary
   width 2vw
   height 100vh
+  z-index 1200
 }
 
 .rightStyleSk {
@@ -93,6 +96,7 @@ header {
   background-color: $primary
   width 2vw
   height 100vh
+  z-index 1200
 }
 
 .leftStyleAb {
@@ -102,6 +106,7 @@ header {
   background-color: $primary
   width 2vw
   height 100vh
+  z-index 1200
 }
 
 .rightStyleAb {
@@ -111,6 +116,7 @@ header {
   background-color: $secondary
   width 2vw
   height 100vh
+  z-index 1000
 }
 
 .leftStyleMob {
@@ -120,6 +126,7 @@ header {
   background-color: $secondary
   width 2vw
   height 192vh
+  z-index 1000
 }
 
 .rightStyleMob {
@@ -129,6 +136,7 @@ header {
   background-color: $primary
   width 2vw
   height 192vh
+  z-index 1000
 }
 
 
