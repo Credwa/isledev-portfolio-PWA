@@ -30,12 +30,12 @@
     <q-scroll-area slot="right" style="width: 100%; height: 100%">
       <q-list-header>Menu</q-list-header>
       <div v-if="layoutStore.rightScroll" style="padding: 25px 16px 16px;" class="mobLayout">
-        <a class="home-icon" v-scroll-to="'#intro'"><q-icon name="home" @click="$refs.layout.toggleRight()"/></a>
-        <a v-scroll-to="'#about'" @click="$refs.layout.toggleRight()">About</a>
-        <a v-scroll-to="'#skills'" @click="$refs.layout.toggleRight()">Skills</a>
-        <a v-scroll-to="'#projects'" @click="$refs.layout.toggleRight()">Projects</a>
-        <a v-scroll-to="'#contact'" @click="$refs.layout.toggleRight()">Contact</a>
-        <router-link to="/blog" @click="console.log(1)" tag="a">Blog</router-link>
+        <a class="home-icon" style="color: #26a69a" v-scroll-to="'#intro'"><q-icon name="home" @click="$refs.layout.toggleRight()"/></a>
+        <a v-scroll-to="'#about'" style="color: #26a69a; border-bottom: 1px solid $secondary; text-decoration: underline;" @click="$refs.layout.toggleRight()">About</a>
+        <a v-scroll-to="'#skills'" style="color: #26a69a; border-bottom: 1px solid $secondary; text-decoration: underline;" @click="$refs.layout.toggleRight()">Skills</a>
+        <a v-scroll-to="'#projects'" style="color: #26a69a; border-bottom: 1px solid $secondary; text-decoration: underline;" @click="$refs.layout.toggleRight()">Projects</a>
+        <a v-scroll-to="'#contact'" style="color: #26a69a; border-bottom: 1px solid $secondary; text-decoration: underline;" @click="$refs.layout.toggleRight()">Contact</a>
+        <router-link to="/blog" style="color: #26a69a; border-bottom: 1px solid $secondary; text-decoration: underline;" @click="$refs.layout.toggleRight()" tag="a">Blog</router-link>
       </div>
     </q-scroll-area>
   <router-view />
@@ -101,7 +101,7 @@ export default {
       this.menuOpen = !this.menuOpen;
     },
     getWindowWidth(event) {
-        this.windowWidth = document.documentElement.clientWidth;
+      this.windowWidth = document.documentElement.clientWidth;
     }
   },
   mounted() {
@@ -151,11 +151,11 @@ a:hover {
   color: $secondary;
   font-size: 1.25em;
   border-bottom: 1px solid $secondary;
-  transition: color 0.5s ease-out, font-size .2s ease-in, border-bottom .2s ease-in;
+  transition: color 0.5s ease-out, font-size 0.2s ease-in, border-bottom 0.2s ease-in;
 }
 
 .navscroll {
-  background-color: $primary
+  background-color: $primary;
   height: $navheight - 1vh;
   font-size: 1.2em;
   transition: height 0.4s ease-in, background-color 0.4s ease-in, font-size 0.4s ease-in;
@@ -164,6 +164,10 @@ a:hover {
 @media screen and (max-width: 920px) {
   nav {
     justify-content: center;
+
+    a {
+      color: red
+    }
   }
 }
 
