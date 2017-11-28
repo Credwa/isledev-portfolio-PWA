@@ -4,10 +4,21 @@
       <div class="bitM"  v-scroll-reveal.reset>
       </div>
       <div  v-scroll-reveal.reset>
-      <h3>Craig Edwards</h3>
-      <h5>Software Engineer</h5>
+      <h1 style="color: white">Craig Edwards</h1>
+      <h3 style="color: white">Full-Stack Software Engineer</h3>
       <a class="downButton" v-scroll-to="'#about'"><q-icon name="keyboard_arrow_down" /></a>
       </div>
+      <div class="leftStyleAb shadow-4"></div>
+      <div class="rightStyleAb shadow-4"></div>
+      <div class="leftStyleSk shadow-4"></div>
+      <div class="rightStyleSk shadow-4"></div>
+      <div class="leftStylePr"></div>
+      <div class="rightStylePr "></div>
+      <div class="xs">
+        <div class="leftStyleMob"></div>
+        <div class="rightStyleMob"></div>
+      </div>
+
     </section>
     <about></about>
     <skills></skills>
@@ -90,8 +101,8 @@ export default {
 }
 
 .downButton {
-  font-size: 4rem;
-  color: $info;
+  font-size: 7rem;
+  color: $secondary;
   border: none;
   margin-bottom: 0px;
   margin-top: 2rem;

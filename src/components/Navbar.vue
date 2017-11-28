@@ -140,22 +140,22 @@ nav {
 }
 
 a {
-  color: grey;
+  color: #ECEFF1;
   margin: 1em;
-  border-bottom: 1px solid $info;
   text-decoration: none;
   transition: color 0.5s ease-out;
   font-family: raleway;
 }
 
 a:hover {
-  color: #26a69a;
+  color: $secondary;
   font-size: 1.25em;
-  border-bottom-color: $info;
+  border-bottom: 1px solid $secondary;
+  transition: color 0.5s ease-out, font-size .2s ease-in, border-bottom .2s ease-in;
 }
 
 .navscroll {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: $primary
   height: $navheight - 1vh;
   font-size: 1.2em;
   transition: height 0.4s ease-in, background-color 0.4s ease-in, font-size 0.4s ease-in;

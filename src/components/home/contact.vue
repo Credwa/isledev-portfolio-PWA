@@ -1,6 +1,6 @@
 <template>
     <div id="contact">
-    <h1 style="margin-top: 8vh">Contact</h1>
+    <h1 style="margin-top: 8vh; color: black">Contact</h1>
     <q-btn color="secondary" @click="formOpen()" label="Open">Email Me</q-btn>
     <q-modal v-model="open" :content-css="{minWidth: '80vw', minHeight: '80vh'}">
     <q-modal-layout>
@@ -153,7 +153,7 @@ export default {
 
 #contact {
   min-height: 40vh;
-  background: $info;
+  background: $secondary;
   display: flex;
   flex-direction: column;
   align-items: center;

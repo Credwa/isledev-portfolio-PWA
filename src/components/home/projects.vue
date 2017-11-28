@@ -1,6 +1,7 @@
 <template>
     <div id="projects">
-        <h1 v-scroll-reveal.reset>Projects</h1>
+        <h1 style="color: black">Projects</h1>
+        <h4 style="color: #31CCEC">Wide Range of projects</h4>
         <div >
             <a v-for="project in projects" :key="project.title" :href="project.link" target="_blank" v-scroll-reveal.reset >
                 <q-card inline class="project">
@@ -8,7 +9,7 @@
                     {{project.title}}
                 </q-card-title>
                 <q-card-main class="projectInfo">
-                    {{project.info}}
+                   <p>{{project.info}}</p>
                 </q-card-main>
             </q-card>
             </a>
@@ -80,7 +81,7 @@ export default {
     min-height: 100vh;
     background: #ECEFF1;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100vw;
@@ -90,21 +91,23 @@ export default {
 .project {
     min-height: 25vh;
     width: 40vh;
-    display: flex;
     transition: background-color 0.4s ease-in, transform 0.4s ease-out;
     color: black;
+    display flex
+    justify-content center
+    align-items center
+    align-content center
 
     .projectTitle {
-        color: #0277BD;
+        color: $primary;
     }
 
     .projectInfo {
-        wrap: wrap;
-        max-width: 25vw;
+        margin auto
     }
 
     &:hover {
-        background-color: rgba(0, 60, 0, 0.5);
+        background-color: $secondary;
         transform: scale(1.05);
         transition: background-color 0.4s ease-in, transform 0.4s ease-out;
         animation: jiggle 2s ease-in infinite;

@@ -47,8 +47,9 @@ body {
   overflow-x: hidden;
 }
 
-h1,h2,h3,h4,h5,h6,h7 {
-  font-family: palatino
+h1, h2, h3, h4, h5 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: $primary;
 }
 
 main {
@@ -58,6 +59,78 @@ main {
 header {
   margin: 0;
 }
+.rightStylePr {
+  position absolute
+  top 300vh
+  left 98vw
+  background-color: $secondary
+  width 2vw
+  height 100vh
+}
+
+.leftStylePr {
+  position absolute
+  top 300vh
+  left 0
+  background-color: $primary
+  width 2vw
+  height 100vh
+}
+
+.leftStyleSk {
+  position absolute
+  top 200vh
+  left 0
+  background-color: $secondary
+  width 2vw
+  height 100vh
+}
+
+.rightStyleSk {
+  position absolute
+  top 200vh
+  left 98vw
+  background-color: $primary
+  width 2vw
+  height 100vh
+}
+
+.leftStyleAb {
+  position absolute
+  top 100vh
+  left 0
+  background-color: $primary
+  width 2vw
+  height 100vh
+}
+
+.rightStyleAb {
+  position absolute
+  top 100vh
+  left 98vw
+  background-color: $secondary
+  width 2vw
+  height 100vh
+}
+
+.leftStyleMob {
+  position absolute
+  top 400vh
+  left 0
+  background-color: $secondary
+  width 2vw
+  height 192vh
+}
+
+.rightStyleMob {
+  position absolute
+  top 400vh
+  left 98vw
+  background-color: $primary
+  width 2vw
+  height 192vh
+}
+
 
 .slide-leave-active {
   transition: opacity 1s ease;

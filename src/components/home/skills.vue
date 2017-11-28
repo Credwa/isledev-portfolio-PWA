@@ -1,8 +1,8 @@
 <template>
   <div id="skills">
-    <h1>Skills</h1>
-    <h4  class="gt-xs" v-scroll-reveal.reset>{{skills[loadedComp].title}}</h4>
-    <div class="skills-list shadow-1" v-touch-swipe.horizontal="userHasSwiped" v-scroll-reveal.reset>
+    <h1 style="color: black">Skills</h1>
+    <h4  style="color: #31CCEC" class="gt-xs" v-scroll-reveal.reset>{{skills[loadedComp].title}}</h4>
+    <div class="skills-list shadow-6" v-touch-swipe.horizontal="userHasSwiped" v-scroll-reveal.reset>
       <a class="navArrow">
         <q-icon name="keyboard_arrow_left" @click="decrementList"/>
       </a>
@@ -151,7 +151,7 @@ export default {
 }
 
 .skills-list {
-  background-color: #ECEFF1;;
+  background-color: $secondary;
   opacity: 0.7;
   width: 100vw;
   height: 40vh;
