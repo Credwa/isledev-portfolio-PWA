@@ -124,7 +124,7 @@ export default {
 @import '~variables';
 
 nav {
-  z-index: 1000;
+  z-index: 1300;
   position: fixed;
   margin: 0;
   top: 0;
