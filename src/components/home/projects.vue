@@ -79,7 +79,9 @@ export default {
 
 #projects {
     min-height: 100vh;
-    background: #ECEFF1;
+    background: #757F9A;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, white, #B1CEC0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, white, #B1CEC0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     display: flex;
     flex-direction: column;
     justify-content: center;
